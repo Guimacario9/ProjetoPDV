@@ -1,0 +1,29 @@
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.exe.config
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.exe
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.pdb
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.FormLogin.resources
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.FormSplash.resources
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.Properties.Resources.resources
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.csproj.GenerateResource.Cache
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.exe
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.pdb
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.csprojResolveAssemblyReference.cache
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormCliente.resources
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormPrincipal.resources
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormProduto.resources
+C:\Users\Moraes\Dropbox\UNILINS\Automação Comercial 202.044\2018\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormVendaItem.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.exe.config
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.exe
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.pdb
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.exe
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.pdb
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormCliente.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.FormLogin.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormPrincipal.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormProduto.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.FormSplash.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.Properties.Resources.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormVendaItem.resources
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.csproj.GenerateResource.Cache
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.csprojAssemblyReference.cache
+C:\Users\Gui\Desktop\Gui\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.csproj.CoreCompileInputs.cache
