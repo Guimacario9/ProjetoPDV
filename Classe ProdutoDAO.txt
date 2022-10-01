@@ -1,0 +1,192 @@
+
+    public class ProdutoDAO
+    {
+        public List<ProdutoDTO> selectAllProdutos()
+        {
+            List<ProdutoDTO> listProdutoDTO = new List<ProdutoDTO>();
+            SqlConnection conn = ConexaoSQL.getConexao();
+            string sqlSelect = @"SELECT codProduto, descricao, valorUnitario, estoqueMinimo, quantidadeEstoque,
+                                codBarra 
+                                FROM Produto";
+            SqlCommand sqlCmd = new SqlCommand(sqlSelect, conn);
+            SqlDataReader sqlDR = sqlCmd.ExecuteReader();
+            while (sqlDR.Read())
+            {
+                ProdutoDTO produto = new ProdutoDTO();
+                produto.CodProduto = Int32.Parse(sqlDR[0].ToString());
+                produto.Descricao = sqlDR[1].ToString();
+                produto.ValorUnitario = Convert.ToDouble(sqlDR[2].ToString());
+                produto.EstoqueMinimo = Convert.ToDouble(sqlDR[3].ToString());
+                produto.QuantidadeEstoque = Convert.ToDouble(sqlDR[4].ToString());
+                produto.CodBarra = sqlDR[5].ToString();
+
+                listProdutoDTO.Add(produto);
+            }
+            return listProdutoDTO;
+        }
+
+        public ProdutoDTO selectProdutoByCodBarra(string codBarra)
+        {
+
+            SqlConnection conn = ConexaoSQL.getConexao();
+            ProdutoDTO produto = new ProdutoDTO();
+            try
+            {
+                String sql = @"SELECT codProduto, descricao, valorUnitario, 
+                                estoqueMinimo, quantidadeEstoque, codBarra
+                                FROM Produto 
+                                WHERE codBarra = @codBarra ";
+                SqlCommand sqlCmd = new SqlCommand(sql, conn);
+                sqlCmd.Parameters.AddWithValue("@codBarra", codBarra);
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+                if (sqlReader.Read())
+                {
+                    produto.CodProduto = Int32.Parse(sqlReader[0].ToString());
+                    produto.Descricao = sqlReader[1].ToString();
+                    produto.ValorUnitario = Convert.ToDouble(sqlReader[2].ToString());
+                    produto.EstoqueMinimo = Convert.ToDouble(sqlReader[3].ToString());
+                    produto.QuantidadeEstoque = Convert.ToDouble(sqlReader[4].ToString());
+                    produto.CodBarra = sqlReader[5].ToString();
+                }
+                else
+                {
+                    produto = null;
+                    MessageBox.Show("Produto NÃO Cadastro no Sistema!!!");
+                }
+                sqlReader.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro ao Selecionar PRODUTO BY Cod Barra: " + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return produto;
+        }
+
+        public ProdutoDTO selectProduto(ProdutoDTO produtoDTO)
+        {
+            SqlConnection conn = ConexaoSQL.getConexao();
+            ProdutoDTO produto = new ProdutoDTO();
+            try
+            {
+                string sqlSelect = @"SELECT codProduto, descricao, valorUnitario, 
+                                estoqueMinimo, quantidadeEstoque, codBarra 
+                                FROM Produto
+                                WHERE codProduto =@codProduto";
+                SqlCommand sqlCmd = new SqlCommand(sqlSelect, conn);
+                sqlCmd.Parameters.AddWithValue("@codProduto", produtoDTO.CodProduto);
+                sqlCmd.ExecuteNonQuery();
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+                if (sqlReader.Read())
+                {
+                    produto.CodProduto = Int32.Parse(sqlReader[0].ToString());
+                    produto.Descricao = sqlReader[1].ToString();
+                    produto.ValorUnitario = Convert.ToDouble(sqlReader[2].ToString());
+                    produto.EstoqueMinimo = Convert.ToDouble(sqlReader[3].ToString());
+                    produto.QuantidadeEstoque = Convert.ToDouble(sqlReader[4].ToString());
+                    produto.CodBarra = sqlReader[5].ToString();
+                }
+                else
+                {
+                    produto = null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro no metodo selectproduto: " + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return produto;
+        }
+
+        public void insertProduto(ProdutoDTO produtoDTO)
+        {
+            SqlConnection conn = ConexaoSQL.getConexao();
+            try
+            {
+                String sqlInsert = @"INSERT INTO Produto (codProduto, descricao, valorUnitario, 
+                                estoqueMinimo, quantidadeEstoque, codBarra ) 
+                                VALUES (@codProduto, @descricao, @valorUnitario, 
+                                @estoqueMinimo, @quantidadeEstoque, @codBarra ) ";
+                SqlCommand sqlCmd = new SqlCommand(sqlInsert, conn);
+                sqlCmd.Parameters.AddWithValue("@codProduto", produtoDTO.CodProduto);
+                sqlCmd.Parameters.AddWithValue("@descricao", produtoDTO.Descricao);
+                sqlCmd.Parameters.AddWithValue("@valorUnitario", produtoDTO.ValorUnitario);
+                sqlCmd.Parameters.AddWithValue("@estoqueMinimo", produtoDTO.EstoqueMinimo);
+                sqlCmd.Parameters.AddWithValue("@quantidadeEstoque", produtoDTO.QuantidadeEstoque);
+                sqlCmd.Parameters.AddWithValue("@codBarra", produtoDTO.CodBarra);
+                sqlCmd.ExecuteNonQuery();
+
+                this.selectAllProdutos();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro ao Inserir Produto: " + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void deleteProduto(ProdutoDTO produtoDTO)
+        {
+            SqlConnection conn = ConexaoSQL.getConexao();
+
+            try
+            {
+                String sqlDelete = "DELETE FROM Produto WHERE CODProduto=@CODIGO ";
+                SqlCommand sqlCmd = new SqlCommand(sqlDelete, conn);
+                sqlCmd.Parameters.AddWithValue("@CODIGO", produtoDTO.CodProduto);
+                sqlCmd.ExecuteNonQuery();
+
+                this.selectAllProdutos();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro ao Excluir Produto: " + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void updateProduto(ProdutoDTO produtoDTO)
+        {
+            SqlConnection conn = ConexaoSQL.getConexao();
+            try
+            {
+                String sqlUpdate = @"UPDATE Produto SET 
+                                    descricao=@descricao, valorUnitario=@valorUnitario, 
+                                    estoqueMinimo=@estoqueMinimo, quantidadeEstoque=@quantidadeEstoque, codBarra=@codBarra 
+                                    WHERE codproduto=@codproduto ";
+                SqlCommand sqlCmd = new SqlCommand(sqlUpdate, conn);
+                sqlCmd.Parameters.AddWithValue("@descricao", produtoDTO.Descricao);
+                sqlCmd.Parameters.AddWithValue("@valorUnitario", produtoDTO.ValorUnitario);
+                sqlCmd.Parameters.AddWithValue("@estoqueMinimo", produtoDTO.EstoqueMinimo);
+                sqlCmd.Parameters.AddWithValue("@quantidadeEstoque", produtoDTO.QuantidadeEstoque);
+                sqlCmd.Parameters.AddWithValue("@codBarra", produtoDTO.CodBarra);
+                sqlCmd.Parameters.AddWithValue("@codproduto", produtoDTO.CodProduto);
+                sqlCmd.ExecuteNonQuery();
+
+                this.selectAllProdutos();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro ao Atualizar Produto: " + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+    }
+	
+	

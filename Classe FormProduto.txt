@@ -1,0 +1,88 @@
+
+    public partial class FormProduto : Form
+    {
+        public FormProduto()
+        {
+            InitializeComponent();
+        }
+
+        private void FormProduto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            ProdutoCTR produtoCTR = new ProdutoCTR();
+            produtoCTR.insertProduto(Convert.ToInt16(txtCodigo.Text), txtDescricao.Text, Convert.ToDouble(txtValorUnitario.Text),
+                Convert.ToDouble(txtEstoqueMinimo.Text), Convert.ToDouble(txtQuantidadeEstoque.Text), txtCodBarra.Text);
+            this.btnSelecionar_Click(sender, e);
+        }
+
+        private void btnSelecionar_Click(object sender, EventArgs e)
+        {
+            List<ProdutoDTO> listaProdutoDTO = new List<ProdutoDTO>();
+            ProdutoCTR produtoCTR = new ProdutoCTR();
+            listaProdutoDTO = produtoCTR.selectAllProduto();
+            dataGridProduto.DataSource = listaProdutoDTO;
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            ProdutoCTR produtoCTR = new ProdutoCTR();
+            produtoCTR.deleteProduto(Convert.ToInt16(txtCodigo.Text));
+            this.btnSelecionar_Click(sender, e);
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            ProdutoCTR ProdutoCTR = new ProdutoCTR();
+            ProdutoCTR.updateProduto(Convert.ToInt16(txtCodigo.Text), txtDescricao.Text, Convert.ToDouble(txtValorUnitario.Text),
+                Convert.ToDouble(txtEstoqueMinimo.Text), Convert.ToDouble(txtQuantidadeEstoque.Text), txtCodBarra.Text);
+            this.btnSelecionar_Click(sender, e);
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtCodigo.Text = "";
+            txtDescricao.Text = "";
+            txtValorUnitario.Text = "";
+            txtEstoqueMinimo.Text = "";
+            txtQuantidadeEstoque.Text = "";
+            txtCodBarra.Text = "";
+        }
+
+        private void btnLocalizar_Click(object sender, EventArgs e)
+        {
+            ProdutoCTR ProdutoCTR = new ProdutoCTR();
+            ProdutoDTO ProdutoDTO = new ProdutoDTO();
+            ProdutoDTO = ProdutoCTR.selectProduto(Convert.ToInt16(txtCodigo.Text));
+            if (ProdutoDTO != null)
+            {
+                txtCodigo.Text = ProdutoDTO.CodProduto.ToString();
+                txtDescricao.Text = ProdutoDTO.Descricao;
+                txtValorUnitario.Text = ProdutoDTO.ValorUnitario.ToString();
+                txtEstoqueMinimo.Text = ProdutoDTO.EstoqueMinimo.ToString();
+                txtQuantidadeEstoque.Text = ProdutoDTO.QuantidadeEstoque.ToString();
+                txtCodBarra.Text = ProdutoDTO.CodBarra;
+            }
+            this.btnSelecionar_Click(sender, e);
+        }
+
+        private void dataGridProduto_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dataGridProduto.Rows.Count > 0)
+            {
+                txtCodigo.Text = dataGridProduto.SelectedRows[0].Cells[0].Value.ToString();
+                txtDescricao.Text = dataGridProduto.SelectedRows[0].Cells[1].Value.ToString();
+                txtValorUnitario.Text = dataGridProduto.SelectedRows[0].Cells[2].Value.ToString();
+                txtEstoqueMinimo.Text = dataGridProduto.SelectedRows[0].Cells[3].Value.ToString();
+                txtQuantidadeEstoque.Text = dataGridProduto.SelectedRows[0].Cells[4].Value.ToString();
+                txtCodBarra.Text = dataGridProduto.SelectedRows[0].Cells[5].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma Linha foi Selecionada no Grid");
+            }
+        }
+    }

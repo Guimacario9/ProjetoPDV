@@ -1,0 +1,126 @@
+
+    public class ProdutoCTR
+    {
+        public ProdutoDTO selectProduto(int codProduto)
+        {
+            ProdutoDTO produtoDTO = new ProdutoDTO();
+            //ProdutoDTO findProdutoDTO = new ProdutoDTO();
+            try
+            {
+                produtoDTO.CodProduto = codProduto;
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                produtoDTO = produtoDAO.selectProduto(produtoDTO);
+                if (produtoDTO.Descricao != null)
+                {
+                    MessageBox.Show("Produto Localizado: " + produtoDTO.Descricao);
+                }
+                else
+                {
+                    MessageBox.Show("Produto Não Existe: " + produtoDTO.CodProduto);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Erro ao Lozalizar produto!");
+            }
+            return produtoDTO;
+        }
+
+        public ProdutoDTO selectProdutoByCodBarra(string codBarrra)
+        {
+            ProdutoDTO produtoDTO = new ProdutoDTO();
+            try
+            {
+                produtoDTO.CodBarra = codBarrra;
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                produtoDTO = produtoDAO.selectProdutoByCodBarra(codBarrra);
+                if (produtoDTO.Descricao != null)
+                {
+                    //MessageBox.Show("Produto Localizado: " + produtoDTO.Descricao);
+                }
+                else
+                {
+                    MessageBox.Show("Produto Não Existe: " + produtoDTO.CodProduto);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Erro ao Localizar produto!");
+            }
+            return produtoDTO;
+        }
+
+        public List<ProdutoDTO> selectAllProduto()
+        {
+            List<ProdutoDTO> listaProdutoDTO = new List<ProdutoDTO>();
+            ProdutoDAO ProdutoDAO = new ProdutoDAO();
+            listaProdutoDTO = ProdutoDAO.selectAllProdutos();
+            return listaProdutoDTO;
+        }
+
+        public void insertProduto(int codProduto, string descricao, double valorUnitario, double estoqueMinimo, double quantidadeEstoque,
+                                string codBarra)
+        {
+            ProdutoDTO produtoDTO = new ProdutoDTO();
+            produtoDTO.CodProduto = codProduto;
+            produtoDTO.Descricao = descricao;
+            produtoDTO.ValorUnitario = valorUnitario;
+            produtoDTO.EstoqueMinimo = estoqueMinimo;
+            produtoDTO.QuantidadeEstoque = quantidadeEstoque;
+            produtoDTO.CodBarra = codBarra;
+
+            try
+            {
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                produtoDAO.insertProduto(produtoDTO);
+                MessageBox.Show("Produto Inserido com Sucesso: " + produtoDTO.Descricao);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao Inserir Produto!");
+            }
+
+
+        }
+
+        public void deleteProduto(int codProduto)
+        {
+            ProdutoDTO produtoDTO = new ProdutoDTO();
+            produtoDTO.CodProduto = codProduto;
+            try
+            {
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                produtoDAO.deleteProduto(produtoDTO);
+                MessageBox.Show("Produto Excluído com Sucesso: " + produtoDTO.CodProduto);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao Excluir Produto!");
+            }
+
+        }
+
+        public void updateProduto(int codProduto, string descricao, double valorUnitario, double estoqueMinimo, double quantidadeEstoque,
+                                string codBarra)
+        {
+            ProdutoDTO produtoDTO = new ProdutoDTO();
+            produtoDTO.CodProduto = codProduto;
+            produtoDTO.Descricao = descricao;
+            produtoDTO.ValorUnitario = valorUnitario;
+            produtoDTO.EstoqueMinimo = estoqueMinimo;
+            produtoDTO.QuantidadeEstoque = quantidadeEstoque;
+            produtoDTO.CodBarra = codBarra;
+
+            try
+            {
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                produtoDAO.updateProduto(produtoDTO);
+                MessageBox.Show("Produto Atualizado com Sucesso: " + produtoDTO.Descricao);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao Atualizar Produto!");
+            }
+
+        }
+    }

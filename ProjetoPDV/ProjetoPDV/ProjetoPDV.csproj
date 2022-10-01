@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41DB896F-B494-4160-BDD4-1E30E22996FA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjetoPDV</RootNamespace>
+    <AssemblyName>ProjetoPDV</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conexao\ConexaoSQL.cs" />
+    <Compile Include="Controller\ClienteCTR.cs" />
+    <Compile Include="Controller\EAN13CTR.cs" />
+    <Compile Include="Controller\ItemCTR.cs" />
+    <Compile Include="Controller\ProdutoCTR.cs" />
+    <Compile Include="Controller\UsuarioCTR.cs" />
+    <Compile Include="Controller\VendaCTR.cs" />
+    <Compile Include="Model\DAO\ClienteDAO.cs" />
+    <Compile Include="Model\DAO\ItemDAO.cs" />
+    <Compile Include="Model\DAO\ProdutoDAO.cs" />
+    <Compile Include="Model\DAO\VendaDAO.cs" />
+    <Compile Include="Model\DTO\ClienteDTO.cs" />
+    <Compile Include="Model\DTO\ItemDTO.cs" />
+    <Compile Include="Model\DTO\ProdutoDTO.cs" />
+    <Compile Include="Model\DTO\VendaDTO.cs" />
+    <Compile Include="View\FormCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormMenuStrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormMenuStrip.Designer.cs">
+      <DependentUpon>FormMenuStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormProduto.Designer.cs">
+      <DependentUpon>FormProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormSplash.Designer.cs">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAO\UsuarioDAO.cs" />
+    <Compile Include="Model\DTO\UsuarioDTO.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\FormVendaitem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormVendaitem.Designer.cs">
+      <DependentUpon>FormVendaitem.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormCliente.resx">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormMenuStrip.resx">
+      <DependentUpon>FormMenuStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormProduto.resx">
+      <DependentUpon>FormProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormSplash.resx">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormVendaitem.resx">
+      <DependentUpon>FormVendaitem.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,14 @@
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.exe.config
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.exe
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\bin\Debug\ProjetoPDV.pdb
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormCliente.resources
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.FormLogin.resources
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormMenuStrip.resources
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormProduto.resources
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.FormSplash.resources
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.Properties.Resources.resources
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.View.FormVendaitem.resources
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.csproj.GenerateResource.cache
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.exe
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.pdb
+D:\Documento\ProjetoPDV\ProjetoPDV\ProjetoPDV\obj\Debug\ProjetoPDV.csprojResolveAssemblyReference.cache
